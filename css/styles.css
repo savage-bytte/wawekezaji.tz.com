@@ -1,0 +1,115 @@
+﻿*{box-sizing:border-box; font-family: Segoe UI, Roboto, Arial, sans-serif}
+:root{--accent:#1aa249; --muted:#666; --navy:#001f3f; --light-gray:#f5f5f5; --border-gray:#d0d0d0}
+body{margin:0; background:#f2fff5; color:#07130b}
+
+/* Login Page Styles */
+.login-page{background-image: linear-gradient(rgba(4,10,20,0.28), rgba(4,10,20,0.28)), url('../images/login-bg.svg'); background-size:cover; background-position:center; display:flex; align-items:center; justify-content:center; min-height:100vh}
+.login-container{width:100%; max-width:420px; padding:28px}
+.bg-upload label{font-size:12px; color:#555; text-align:center; display:block}
+.login-card{background:#fff; border-radius:12px; padding:40px 30px; box-shadow:0 8px 24px rgba(0,0,0,0.1)}
+.login-heading{color:var(--navy); font-size:32px; margin:0 0 30px 0; text-align:center; font-weight:700; letter-spacing:-0.5px; line-height:1.4}
+.login-form{width:100%}
+.form-group{margin-bottom:16px}
+.form-group input[type=email],
+.form-group input[type=password]{width:100%; padding:12px 14px; border:1px solid var(--border-gray); border-radius:8px; font-size:14px; background:#fff; color:#333}
+.form-group input::placeholder{color:#999}
+.form-group input:focus{outline:none; border-color:var(--accent); box-shadow:0 0 0 3px rgba(26,162,73,0.1)}
+.form-checkbox{display:flex; align-items:center; margin-bottom:20px; gap:8px}
+.form-checkbox input[type=checkbox]{cursor:pointer; width:18px; height:18px; accent-color:var(--accent)}
+.form-checkbox label{cursor:pointer; font-size:14px; color:var(--muted); margin:0}
+.btn-primary{width:100%; padding:12px 16px; background:var(--accent); color:#fff; border:none; border-radius:8px; font-size:16px; font-weight:600; cursor:pointer; transition:all 0.2s ease}
+.btn-primary:hover{background:#157a3a; box-shadow:0 4px 12px rgba(26,162,73,0.3)}
+.btn-primary:active{transform:scale(0.98)}
+.divider{text-align:center; color:var(--border-gray); margin:20px 0; font-size:14px}
+.btn-google{display:flex; align-items:center; justify-content:center; gap:10px; width:100%; padding:11px 16px; background:#fff; border:1px solid var(--border-gray); border-radius:8px; font-size:14px; color:#333; text-decoration:none; cursor:pointer; font-weight:500; transition:all 0.2s ease}
+.btn-google:hover{background:var(--light-gray); box-shadow:0 2px 8px rgba(0,0,0,0.08)}
+.forgot-password{text-align:center; margin-top:20px}
+.forgot-password a{color:var(--muted); font-size:14px; text-decoration:none; transition:color 0.2s}
+.forgot-password a:hover{color:var(--navy); text-decoration:underline}
+.form-instructions{color:var(--muted); font-size:14px; margin-bottom:20px; text-align:center; line-height:1.5}
+.back-to-login{text-align:center; margin-top:20px}
+.back-to-login a{color:var(--muted); font-size:14px; text-decoration:none; transition:color 0.2s}
+.back-to-login a:hover{color:var(--navy); text-decoration:underline}
+
+/* Main App Styles */
+.site-header{background:linear-gradient(90deg,#0b6efd,#1aa249); color:#fff; padding:28px 16px; text-align:center}
+.site-header h1{margin:0; font-size:28px}
+.site-header .tag{opacity:.9; margin-top:6px}
+.container{max-width:960px; margin:28px auto; padding:0 16px; display:grid; grid-template-columns:1fr 360px; gap:24px}
+.predict-form, .predictions-list, .resources{background:#fff; border-radius:8px; padding:16px; box-shadow:0 6px 18px rgba(15,20,30,.06)}
+.predict-form h2, .predictions-list h2, .resources h2{margin-top:0}
+.row{display:flex; gap:12px}
+label{display:block; margin-bottom:10px; font-size:14px}
+input[type=text], input[type=date], input[type=number]{width:100%; padding:8px 10px; border:1px solid #e2e6ef; border-radius:6px}
+.actions{display:flex; gap:10px; flex-wrap:wrap}
+button{background:var(--accent); color:#fff; border:none; padding:10px 14px; border-radius:6px; cursor:pointer}
+button#clearBtn{background:#eaeff0; color:#111}
+button#exportBtn, button#importBtn{background:#fff; color:var(--accent); border:1px solid #dfece2}
+.predictions-list ul{list-style:none; padding:0; margin:0}
+.prediction-item{padding:12px; border-bottom:1px solid #f0f2f6; display:flex; justify-content:space-between; gap:12px; align-items:center}
+.prediction-meta{color:var(--muted); font-size:13px}
+.empty{color:var(--muted); padding:12px}
+.site-footer{padding:14px; text-align:center; color:var(--muted); font-size:13px}
+@media(max-width:880px){ .container{ grid-template-columns:1fr }}
+
+/* Mobile adjustments */
+@media (max-width:600px) {
+	html,body{font-size:16px}
+	.container{padding:12px; gap:12px}
+	.predict-form, .predictions-list, .resources, .result-tickets, .pending-results{padding:12px}
+	.row{flex-direction:column; gap:10px}
+	label{font-size:15px}
+	input[type=text], input[type=date], input[type=number], input[type=email], input[type=password], select{padding:12px}
+	.actions{flex-direction:column}
+	button, .btn-primary, .btn-google{width:100%; padding:14px 16px; font-size:16px}
+	.prediction-item, .result-item, .pending-item{flex-direction:column; align-items:flex-start}
+	.result-item-actions{flex-direction:row; gap:8px; margin-top:10px}
+	.result-item-actions button{width:auto; min-width:120px}
+	.login-container{max-width:360px; padding:18px}
+	.login-card{padding:22px}
+	.login-heading{font-size:22px}
+	.bg-upload label{font-size:13px}
+	.form-checkbox{gap:10px}
+	.result-item-status, .pending-badge{font-size:13px; padding:6px 10px}
+	.result-item, .pending-item{width:100%}
+}
+/* nav styling */
+.mini-nav{margin-top:8px}
+.mini-nav a{color:#fff; margin-right:12px; text-decoration:underline}
+.mini-nav .link-button{background:none; border:none; color:#fff; cursor:pointer; text-decoration:underline; padding:0; font:inherit}
+
+/* focus styles */
+button:focus, input:focus, a:focus{outline:2px solid rgba(26,162,73,0.35); outline-offset:2px}
+
+/* Result Tickets Section */
+.result-tickets{background:#fff; border-radius:8px; padding:16px; box-shadow:0 6px 18px rgba(15,20,30,.06)}
+.result-tickets h2{margin-top:0}
+.result-tickets ul{list-style:none; padding:0; margin:0}
+.result-item{padding:16px; border:1px solid #e0e0e0; border-radius:8px; margin-bottom:12px; display:flex; justify-content:space-between; align-items:flex-start; gap:12px}
+.result-item.won{border-left:4px solid #ffc107; background:#fffbf0}
+.result-item.lost{border-left:4px solid #dc3545; background:#fdf5f5}
+.result-item.draw{border-left:4px solid #28a745; background:#f0f9f6}
+.result-item-details{flex:1}
+.result-item-title{font-weight:600; font-size:16px; color:#333; margin:0 0 6px 0}
+.result-item-meta{color:#666; font-size:13px; margin:4px 0}
+.result-item-status{display:inline-block; padding:4px 8px; border-radius:4px; font-size:12px; font-weight:600; margin-top:8px}
+.result-item-status.won{background:#ffc107; color:#333}
+.result-item-status.lost{background:#dc3545; color:#fff}
+.result-item-status.draw{background:#28a745; color:#fff}
+.result-item-actions{display:flex; gap:8px; flex-direction:column}
+.result-item-actions button{padding:6px 10px; font-size:12px; border-radius:6px; border:none; cursor:pointer}
+.result-edit-btn{background:#1aa249; color:#fff}
+.result-edit-btn:hover{background:#157a3a}
+.result-delete-btn{background:#dc3545; color:#fff}
+.result-delete-btn:hover{background:#c82333}
+select{width:100%; padding:8px 10px; border:1px solid #e2e6ef; border-radius:6px; font-family:inherit}
+
+/* Pending Results Section */
+.pending-results{background:#fff; border-radius:8px; padding:16px; box-shadow:0 6px 18px rgba(15,20,30,.06)}
+.pending-results h2{margin-top:0}
+.pending-results ul{list-style:none; padding:0; margin:0}
+.pending-item{padding:14px; border:1px solid #ffc107; border-radius:8px; margin-bottom:10px; background:#fffbf0; display:flex; justify-content:space-between; gap:12px}
+.pending-item-details{flex:1}
+.pending-item-title{font-weight:600; font-size:15px; color:#333; margin:0 0 6px 0}
+.pending-item-meta{color:#666; font-size:13px; margin:4px 0}
+.pending-badge{display:inline-block; padding:4px 8px; border-radius:4px; font-size:11px; font-weight:600; background:#ffc107; color:#333; margin-top:6px}

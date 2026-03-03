@@ -1,0 +1,97 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Wakamaria 407  Football Predictions</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1>Wakamaria 407</h1>
+    <p class="tag">Football predictions & tips</p>
+    <nav class="mini-nav">
+      <a href="/dashboard.html">Dashboard</a>
+      <form method="post" action="/logout" style="display:inline">
+        <button type="submit" class="link-button">Logout</button>
+      </form>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="resources">
+      <h2>Resources</h2>
+      <p>Analyze matches using popular betting platforms:</p>
+      <ul>
+        <li><a href="https://www.betpawa.com" target="_blank" rel="noopener">BetPawa</a></li>
+        <li><a href="https://sportybet.com" target="_blank" rel="noopener">Sportybet</a></li>
+        <li><a href="https://whatsapp.com/channel/0029VbBm939HbFVDmgpjw51K" target="_blank" rel="noopener">Our Prediction site</a></li>
+      </ul>
+      <p>Join our WhatsApp group for predictions and discussion:</p>
+      <p><a href="https://chat.whatsapp.com/LhDri5Ut5iv2tsiKlrlbsU" target="_blank" rel="noopener">Wakamaria Sugu WhatsApp Group</a></p>
+    </section>
+
+    <section class="predict-form">
+      <h2>Submit a prediction</h2>
+      <form id="predictionForm">
+        <div class="row">
+          <label>Home team<input type="text" id="home" required></label>
+          <label>Away team<input type="text" id="away" required></label>
+        </div>
+        <div class="row">
+          <label>Match date<input type="date" id="date" required></label>
+          <label>Confidence (%)<input type="number" id="confidence" min="0" max="100" value="75" required></label>
+        </div>
+        <label>Prediction (score or tip)
+          <input type="text" id="predictionText" placeholder="e.g., 2-1, Over 2.5" required>
+        </label>
+        <div class="actions">
+          <button type="submit">Save prediction</button>
+          <button type="button" id="clearBtn">Clear all</button>
+          <button type="button" id="exportBtn">Download JSON</button>
+          <button type="button" id="importBtn">Upload JSON</button>
+          <input type="file" id="importFile" accept="application/json" style="display:none">
+        </div>
+      </form>
+    </section>
+
+    <section class="predictions-list">
+      <h2>Predictions</h2>
+      <ul id="predictions"></ul>
+    </section>
+
+    <section class="result-tickets">
+      <h2>Result Tickets</h2>
+      <div id="adminPanel" style="display:none; margin-bottom:20px; padding:16px; background:#f0f8f5; border-radius:8px;">
+        <p style="margin-top:0; color:#555; font-size:14px;">Admin panel: You can add and edit results</p>
+        <form id="resultForm" style="margin-bottom:16px;">
+          <div class="row">
+            <label>Home team<input type="text" id="resHome" required></label>
+            <label>Away team<input type="text" id="resAway" required></label>
+          </div>
+          <div class="row">
+            <label>Match date<input type="date" id="resDate" required></label>
+            <label>Final score<input type="text" id="resScore" placeholder="e.g., 2-1" required></label>
+          </div>
+          <div class="row">
+            <label>Prediction was<input type="text" id="resPrediction" placeholder="Your prediction" required></label>
+            <label>Result<select id="resResult" required><option value="">Select...</option><option value="won">Won</option><option value="lost">Lost</option><option value="draw">Draw</option></select></label>
+          </div>
+          <button type="submit" class="btn-primary">Add/Update Result</button>
+        </form>
+      </div>
+      <ul id="resultsList"></ul>
+    </section>
+
+    <section class="pending-results">
+      <h2>Pending Results</h2>
+      <p style="color:#666; font-size:14px; margin-top:0;">Predictions waiting for match outcomes</p>
+      <ul id="pendingList"></ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">Built with   Wakamaria 407</footer>
+  <script src="js/app.js"></script>
+  <script src="js/results.js"></script>
+</body>
+</html>

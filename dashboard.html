@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Dashboard - Wakamaria 407</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1>Wakamaria 407</h1>
+    <p class="tag">Your saved analysis</p>
+  </header>
+  <main class="container">
+    <section class="predictions-list">
+      <h2>Saved predictions on server</h2>
+      <ul id="savedPredictions"></ul>
+    </section>
+    <section class="actions" style="margin-top:20px;text-align:center;">
+      <a href="/index.html"><button>Go to App</button></a>
+      <form method="post" action="/logout" style="display:inline;"><button type="submit">Logout</button></form>
+    </section>
+  </main>
+
+  <script>
+  async function fetchSaved() {
+    try {
+      const res = await fetch('/api/predictions');
+      if(!res.ok) throw new Error(res.statusText);
+      const items = await res.json();
+      const ul = document.getElementById('savedPredictions');
+      ul.innerHTML = '';
+      if(items.length === 0) {
+        ul.innerHTML = '<li class="empty">No saved predictions on server.</li>';
+        return;
+      }
+      items.forEach(it=>{
+        const li = document.createElement('li');
+        li.className = 'prediction-item';
+        li.textContent = `${it.home} vs ${it.away} — ${it.prediction} (${it.confidence}%) on ${new Date(it.date).toLocaleDateString()}`;
+        ul.appendChild(li);
+      });
+    }catch(e){
+      console.error('fetchSaved', e);
+    }
+  }
+  fetchSaved();
+  </script>
+</body>
+</html>
